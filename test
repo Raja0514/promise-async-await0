@@ -1,0 +1,68 @@
+//promise creation part
+
+function getpromiseData(){
+	return new Promise(function(resolve,reject){
+		setTimeout(function(){
+			reject(`rejected`)
+		})
+	})
+}
+
+//promise receiver
+
+getpromiseData()
+.then((data)=>console.log(`The promise are solved in promise mode :${data}`))
+.catch((error)=>console.log(`Promise are getting error:${error}`))
+.finally(()=>console.log(`This is finally section`))
+
+
+//promise receiver in async mode
+
+async function receivedata(){
+	try{
+	let result=await getpromiseData();
+	console.log(`The promise are solved in async mode :${result}`);
+	}
+	catch(err){
+		
+		console.log(`Promise are getting error in async mode:${err}`)
+	}
+	finally{
+		console.log(`Finally its async mode`);
+	}
+	
+}
+
+
+
+function start(){
+	fetch(`https://jsonplaceholder.typicode0000.com/posts`)
+	.then(data=>data.json())
+	.then((data=>console.log(data)))
+	.catch((err)=>console.log(`${err.name} ans ${err.message}`))
+	.finally(()=>console.log(`solved finally`))
+}
+
+
+
+async function start1(){
+	
+	try {
+	let result=await fetch(`https://jsonplaceholder00.typicode.com/posts`)
+	let jsondata= await result.json();
+	console.log(jsondata);
+	}
+	
+	catch(err){
+	console.log(`${err.name} and ${err.message}`)
+	}
+
+    finally{
+		console.log(`solved finally`);
+	}		
+
+	
+}
+receivedata();
+start();
+start1();
