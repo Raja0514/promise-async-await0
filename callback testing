@@ -1,0 +1,103 @@
+function userlogin(success,failure){
+	
+	setTimeout(()=>{
+		
+		let user=true;
+		
+		if(user){
+		  success(`user online`);	  
+		}
+		else{
+			failure(`user offline`)
+		}
+				
+	},2000)
+}
+
+function authsuccess(user1){
+	
+	console.log(`online user :${user1}`);
+	
+}
+function authfail(error){
+	
+	console.log(`offline user :${error}`)
+}
+
+userlogin(authsuccess,authfail);
+
+
+/*
+let pizza;
+
+function orderPizza(callback8){
+	
+	console.log(`waiting for lunch`)
+
+	setTimeout(function(){
+	console.log(`pizaa was order`);
+	pizza=`ready`;
+	console.log(`do something`);
+	callback8(pizza)},2000)
+	
+	console.log(`waiting for dinner`);
+}
+
+function pizzaready(pizza){
+console.log(`From the callback function:${pizza}`);
+}
+
+orderPizza(pizzaready);
+console.log(`The Pizaa was :${pizza}`);
+
+
+
+
+//callback
+
+
+function data1(callback){
+	
+	console.log('function1')
+	let x="pizza";
+	callback(x);
+
+}
+
+function data2(x){
+	
+	console.log(`print:${x}`);
+}
+
+//data1(data2);
+
+function data3(callback){
+	
+	//console.log('start')
+	
+	setTimeout(function(){
+		let x="pizza";
+	callback(x);
+},2000)
+
+
+//console.log('end');
+}
+
+function data4(x){
+	
+	console.log(`print:${x}`);
+}
+
+data3(data4);
+
+console.log('after function')
+
+*/
+
+
+
+
+
+
+
