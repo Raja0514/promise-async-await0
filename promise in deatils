@@ -1,0 +1,44 @@
+const url=`https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json`;
+
+const fecthpromise= fetch(url);
+
+console.log(fecthpromise);
+
+
+// fecthpromise.then((res)=>{
+	
+	// console.log(`Received response:${res.status}`);
+// })
+
+
+// console.log("started request....")
+
+
+// fecthpromise.then((res)=>{
+	
+	// const jsonpromise=res.json();
+	
+	// jsonpromise.then(data=>data.map(val=>console.log(`The Name is :${val.name} and The price is :${val.price}`)));
+// });
+
+//console.log("stared requtest")
+
+
+// fecthpromise
+// .then(res=>res.json())
+// .then(data=>data.map(res=>console.log(res)));
+
+
+fecthpromise
+
+.then(response=>{
+	if(!response){
+		throw new Error(`HTTP status Error code :${response.status}`)
+	}
+	
+	return response.json();
+})
+
+.then(data=>console.log(data[0].name))
+
+.catch((error)=>console.log(`could not get products :${error}`))
