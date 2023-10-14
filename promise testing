@@ -1,4 +1,6 @@
 
+//promise creation part
+
 function getpromise(){
 	
 	console.log('dealy data')
@@ -29,6 +31,8 @@ function solved(){
 	console.log(`solved data from promise`)
 }
 
+//promise receiver part
+
 function start1(){
 	
 getpromise()
@@ -38,7 +42,7 @@ getpromise()
 }
 
 
-
+//promise receiver part
 
 async function start2(){
 		
@@ -58,9 +62,13 @@ async function start2(){
 		 console.log('solved data');
 	 }
 }
+
+//calling function
+
 console.log('wwwwwww')
 console.log('wwwwwww')
 start1();
+//timer
 setTimeout(()=>{
 	console.log("timer")
 },2000)
