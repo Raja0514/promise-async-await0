@@ -1,0 +1,90 @@
+//promise creation
+
+function getpromise(){
+	
+	return new Promise((resolve,reject)=>{
+	
+	let userlogin=false;
+	
+	userlogin?resolve('user online'):reject('user offline')
+})
+
+}
+
+
+//promise receiver
+
+function call1(){
+getpromise()
+.then((data)=>{console.log(`this data from normal promise:${data}`)})
+.catch((err)=>{console.log(`this err from normal promise:${err}`)})	
+.finally(()=>console.log('finally part'))
+}
+
+
+//promise receiver
+
+
+async function call2(){
+	
+	try{
+		
+	let res= await getpromise();
+	
+	console.log(`this is from async :${res}`);
+	
+	}
+	catch(err){
+      console.log(`this is err async:${err}`)        		
+	}
+	finally{
+		
+		console.log('async finall');
+	}	
+}
+//call1();
+//call2();
+
+
+
+function add(a,b){
+	
+	return a+b;
+	console.log('worrkkk');
+}
+
+let datareceive=add(1,2);
+
+//console.log(datareceive);
+
+
+
+const urlnew="https://jsonplaceholder.typicode.com/posts"
+
+fetch(urlnew)
+
+.then((res)=>res.json())
+.then((res3)=>console.log(res3));
+
+//let newvalue=res.json();
+//newvalue.then((res2)=>console.log(res2))	
+
+
+
+//.catch((err)=>console.log(err.message))
+
+
+async function readdata(){
+	
+	let res1=await fetch(urlnew);
+	
+	console.log(res1);
+	
+	let jsondata = await res1.json();
+	
+	console.log(jsondata);
+	
+}
+
+//readdata();
+
